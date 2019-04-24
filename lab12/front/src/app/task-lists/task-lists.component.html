@@ -1,0 +1,34 @@
+<app-base>
+    <ng-container>
+      <div class="container">
+          <button type="button" class="btn btn-primary" (click)="navigateBack()">Back</button>
+        <div class="row">
+            <span><h2>Task Lists</h2></span>
+        </div>
+        <br>
+        <div>
+          <label for="listname" style="margin-right:5px;">Name:</label>
+          <input type="text" id="listname" [(ngModel)]="name">
+          <br>
+          <button type="submit" class="btn btn-primary" (click)="createTaskList()" style="margin-bottom:5px;">Create</button>
+        </div>
+        
+        <table class="table">
+            <tr>
+              <td>Number</td>
+              <td>Name</td>
+            </tr>
+            <tr *ngFor="let taskList of taskLists">
+              <td>{{taskList.id}}</td>
+              <td>{{taskList.name}}</td>
+              <td>
+                <a routerLink="/tasklists/{{taskList.id}}/"><button type="button" class="btn btn-info">Details</button></a> 
+              </td>
+              <td>
+                <a routerLink="/tasklist/{{taskList.id}}/tasks/"><button type="button" class="btn btn-warning">Tasks</button></a> 
+              </td>
+            </tr>
+        </table>
+      </div>
+      </ng-container>
+</app-base>
