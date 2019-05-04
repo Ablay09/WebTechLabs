@@ -1,0 +1,48 @@
+<ng-container>
+  <app-base>
+        <button type="button" class="btn btn-primary" (click)="navigateBack()">Back</button>
+        <div class="row">
+            <span><h2>Tasks for TaskList: {{taskList.name}}</h2></span>
+        </div>
+        <br>
+        <div>
+          <div>
+            <label>Create Task</label>
+            <hr>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="taskName">
+            </div>
+            <div class="form-group">
+              <label for="createdat">Created at</label>
+              <input type="text" class="form-control" id="createdat" [(ngModel)]="task_created_at">
+            </div>
+            <div class="form-group">
+              <label for="dueon">Due On</label>
+              <input type="text" class="form-control" id="dueon" [(ngModel)]="task_due_on">
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control datepicker" id="status" [(ngModel)]="taskStatus">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="createTask()">Create</button>
+          </div>
+        </div>
+        <table class="table">
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Status</td>
+              <td>Details</td>
+            </tr>
+            <tr *ngFor="let task of tasks">
+              <td>{{task.id}}</td>
+              <td>{{task.name}}</td>
+              <td>{{task.status}}</td>
+              <td>
+                <a routerLink="/tasks/{{task.id}}/"><button type="button" class="btn btn-info">Details</button></a> 
+              </td>
+            </tr>
+        </table>
+  </app-base>
+</ng-container>

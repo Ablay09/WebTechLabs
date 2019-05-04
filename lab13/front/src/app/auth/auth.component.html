@@ -1,0 +1,20 @@
+<app-base>
+  <ng-container>
+    <div class="container">
+      <button type="button" class="btn btn-primary" (click)="navigateBack()">Back</button>
+      <div class="row">
+        <span><h2>Login</h2></span>
+      </div>
+      <br>
+      <div>
+        <label for="userName" style="margin-right:5px;">Username:</label>
+        <input type="text" id="userName" [(ngModel)]="username">
+        <br>
+        <label for="userPassword" style="margin-right:5px;">Password:</label>
+        <input type="password" id="userPassword" [(ngModel)]="password">
+        <br>
+        <button type="submit" class="btn btn-primary" (click)="login()" style="margin-bottom:5px;">Login</button>
+      </div>
+    </div>
+  </ng-container>
+</app-base>
